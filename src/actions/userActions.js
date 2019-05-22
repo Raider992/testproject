@@ -6,10 +6,9 @@ export function handleLogin() {
   return (dispatch) => {
     dispatch({
       type: LOGIN_REQUEST
-    })
+    });
 
     //eslint-disable-next-line no-undef
-
     VK.Auth.login(r => {
       if (r.session) {
         const username = r.session.user.first_name;
@@ -18,15 +17,13 @@ export function handleLogin() {
           type: LOGIN_SUCCESS,
           payload: username
         })
-      else {
+      } else {
         dispatch({
           type: LOGIN_FAIL,
           error: true,
           payload: new Error('Ошибка авторизации')
         })
       }
-      }
     }, 4)
   }
 }
-
