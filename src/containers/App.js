@@ -12,7 +12,6 @@ import './App.css';
 class App extends Component {
   render() {
     const {user, page, getPhotosAction, handleLoginAction } = this.props;
-    console.log('111', this.props);
     return (
       <div className="App">
         <header className="App-header">
